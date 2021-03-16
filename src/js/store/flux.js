@@ -12,9 +12,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			rating: -1,
+			ratingHover: -1
 		},
 		actions: {
+			setRating(rating) {
+				setStore({ rating: rating });
+			},
+			setRatingHover(ratingHover) {
+				setStore({ ratingHover: ratingHover });
+			},
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

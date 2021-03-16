@@ -1,15 +1,30 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState, useContext } from "react";
+
 import "../../styles/home.scss";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+import Rating from "../component/rating.jsx";
+
+export function Home() {
+	let starsRating = [1, 2, 3, 4, 5];
+
+	return (
+		<div className="text-center mt-5">
+			<h1>Hello Rigo!</h1>
+
+			<span className="d-flex justify-content-center mr-1 pr-1">
+				{starsRating.map((star, index) => {
+					return (
+						<Rating
+							key={star}
+							id={index + 1}
+							// rating={rating}
+							// onClick={addRating}
+							// onMouseOver={() => setShowSolidIcon(true)}
+							// onMouseLeave={() => setShowSolidIcon(false)}
+						/>
+					);
+				})}
+			</span>
+		</div>
+	);
+}
